@@ -1,7 +1,7 @@
 .impeccable/
 assets/silent*.mp4
 assets/score.wav
-checks/*screen*.png
+checks/*.png
 checks/contact-sheet.jpg
 __pycache__/
 node_modules/
