@@ -1,0 +1,8 @@
+{
+  "decodedFrames": 900,
+  "adjacentIdenticalFrames": 0,
+  "blackDetection": "d=0.03, pix_th=0.02",
+  "freezeDetection": "noise=-80dB, duration=0.5s (quiet animated holds)",
+  "events": [],
+  "pass": true
+}

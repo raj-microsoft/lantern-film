@@ -1,0 +1,63 @@
+{
+  "bpm": 120,
+  "sample_rate": 48000,
+  "parts": [
+    "harmony",
+    "bass",
+    "arpeggio",
+    "melody",
+    "cue-effects"
+  ],
+  "voice": "Omitted; captions substitute",
+  "effects_license": "CC0-1.0, original synthesis",
+  "cues": [
+    {
+      "time": 0,
+      "name": "wake"
+    },
+    {
+      "time": 0.5,
+      "name": "land"
+    },
+    {
+      "time": 4,
+      "name": "morning"
+    },
+    {
+      "time": 8,
+      "name": "arrival"
+    },
+    {
+      "time": 9,
+      "name": "reminder"
+    },
+    {
+      "time": 9.5,
+      "name": "card lands"
+    },
+    {
+      "time": 14,
+      "name": "permission"
+    },
+    {
+      "time": 17,
+      "name": "pointer"
+    },
+    {
+      "time": 18,
+      "name": "approve"
+    },
+    {
+      "time": 20,
+      "name": "evening"
+    },
+    {
+      "time": 25,
+      "name": "wordmark"
+    },
+    {
+      "time": 25.5,
+      "name": "final landing"
+    }
+  ]
+}

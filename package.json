@@ -1,0 +1,1 @@
+{"name":"lantern-film","private":true,"version":"1.0.0","description":"Deterministic original browser film renderer","scripts":{"render":"node src/render.cjs","verify:browser":"node src/browser-check.cjs"},"devDependencies":{"playwright-core":"1.65.0"}}

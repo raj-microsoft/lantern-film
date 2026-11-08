@@ -1,0 +1,13 @@
+{
+  "engine": "Headless Edge (Chromium)",
+  "entry": "film.html",
+  "width": 1920,
+  "height": 1080,
+  "frames": 900,
+  "fps": 30,
+  "subframeSamples": 4,
+  "shutterSeconds": 0.016666666666666666,
+  "captions": "Drawn after temporal accumulation",
+  "deterministic": true,
+  "motionBlurChangesPixels": true
+}

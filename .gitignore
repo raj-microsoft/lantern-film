@@ -1,6 +1,10 @@
 .impeccable/
 assets/silent*.mp4
 assets/score.wav
+assets/stems/*.wav
+checks/*.log
+checks/*.md5
+src/update_page.py
 checks/*.png
 checks/contact-sheet.jpg
 __pycache__/
