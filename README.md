@@ -53,4 +53,4 @@ checks/render*.json records determinism and motion-blur checks; ffprobe*.json re
 
 ## Asset provenance and access
 Poster and six shot stills are original Canvas output at frames 60/180/330/510/675/840. No third-party imagery. Figtree by Erik Kennedy, Google Fonts repository, SIL Open Font License (assets/OFL.txt). Cue effects only are CC0-1.0; no downloaded samples.
-Native media controls, no autoplay, reduced-motion-compatible navigation, full written script, accessible cue controls, and a silent deterministic preview with manual playback. No trackers or external runtime dependencies.
+Accessible play/pause, seek, mute and fullscreen controls sit below the video image, so they cannot cover burned-in captions. Native controls remain a no-JavaScript fallback. No autoplay, reduced-motion-compatible navigation, full written script, accessible cue controls, and a silent deterministic preview with manual playback. No trackers or external runtime dependencies.

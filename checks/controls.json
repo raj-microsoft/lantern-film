@@ -1,0 +1,32 @@
+[
+  {
+    "width": 390,
+    "http": 200,
+    "playing": true,
+    "paused": true,
+    "keyboardSeek": true,
+    "muted": true,
+    "cueFocus": true,
+    "nativeControls": false,
+    "controlsBelow": true,
+    "overflow": false,
+    "transcript": true,
+    "reducedMotion": true,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "http": 200,
+    "playing": true,
+    "paused": true,
+    "keyboardSeek": true,
+    "muted": true,
+    "cueFocus": true,
+    "nativeControls": false,
+    "controlsBelow": true,
+    "overflow": false,
+    "transcript": true,
+    "reducedMotion": true,
+    "errors": []
+  }
+]
