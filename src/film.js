@@ -66,7 +66,9 @@ window.seek=(time,samples=4)=>{const t=Math.max(0,Math.min(29.966667,Number(time
  ctx.setTransform(1,0,0,1,0,0);ctx.globalAlpha=1;
  for(let k=0;k<samples;k++){
    const delta=samples===1?0:((k+.5)/samples-.5)/60;
-   const st=Math.max(s.start,Math.min(s.end-.000001,t+delta));
+   let st=Math.max(s.start,Math.min(s.end-.000001,t+delta));
+   // UI approval is an instantaneous cut, not moving geometry: do not blend its two labels.
+   if(s===scenes[3])st=t>=18?Math.max(18,st):Math.min(17.999999,st);
    c=sampleCtx;c.setTransform(scale,0,0,scale,0,0);c.globalAlpha=1;world(st);
    ctx.globalAlpha=1/(k+1);ctx.drawImage(sample,0,0);
  }
@@ -78,6 +80,6 @@ const slider=document.getElementById('time'),toggle=document.getElementById('tog
 function show(t){window.seek(t);slider.value=t;readout.textContent=t.toFixed(2)+' s';}
 function stop(){playing=false;cancelAnimationFrame(raf);toggle.textContent='Play preview';}
 function tick(now){const t=base+(now-start)/1000;if(t>=30){stop();show(29.966667);return;}show(t);raf=requestAnimationFrame(tick);}
-toggle.onclick=()=>{if(playing){stop();return;}base=Number(slider.value);if(base>29.9)base=0;start=performance.now();playing=true;toggle.textContent='Pause preview';raf=requestAnimationFrame(tick);};slider.oninput=()=>{stop();show(Number(slider.value));};
+toggle.onclick=()=>{if(playing){stop();return;}base=Number(slider.value);if(base>29.9)base=0;start=performance.now();playing=true;toggle.textContent='Pause preview';raf=requestAnimationFrame(tick);};slider.oninput=()=>{stop();show(Math.round(Number(slider.value)*30)/30);};
 if(new URLSearchParams(location.search).has('render'))document.body.classList.add('render');
 window.filmReady=document.fonts.load('400 66px Figtree').then(()=>{window.configureFilm();show(2);return true;});

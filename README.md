@@ -47,6 +47,8 @@ python src/verify.py
 - Optional HyperFrames omitted; scene functions, captions and audio stems remain separated in source.
 
 ## Checks
+Published masters measure -16.01 LUFS and -1.88 dBTP; approximately 1.72 MB for 1080p and 2.57 MB for native 4K. Both are below 25 MB. Live Edge checks at 1440px and 390px confirm HTTP 200, no horizontal overflow or JavaScript errors, 14 pipeline headings, five stems, working shot cues and deterministic preview. Detector: zero findings.
+
 checks/render*.json records determinism and motion-blur checks; ffprobe*.json records native dimensions, frame count and duration; loudness*.json records final encoded levels. frame-qc*.json combines ffmpeg black/freeze scanning with MD5 comparison of every decoded adjacent frame. The -80 dB freeze threshold distinguishes quiet breathing animation from actual freezes; zero identical adjacent frames is checked separately.
 
 ## Asset provenance and access

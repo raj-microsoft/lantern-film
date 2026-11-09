@@ -9,6 +9,23 @@
     },
     "images": true,
     "reducedMotion": true,
+    "pipelineHeadings": [
+      "00 · What you need",
+      "01 · Collect references",
+      "02 · Pick the idea and write the script",
+      "03 · Get the ingredients",
+      "04 · Footage",
+      "05 · Voiceover",
+      "06 · The film project",
+      "07 · Build the characters",
+      "08 · Animate the six scenes",
+      "09 · Music and sound",
+      "10 · Render and encode",
+      "11 · Check it",
+      "12 · 4K master",
+      "13 · HyperFrames (optional)"
+    ],
+    "audioParts": 5,
     "cue": {
       "time": 14.5,
       "paused": true
@@ -25,10 +42,33 @@
     },
     "images": true,
     "reducedMotion": true,
+    "pipelineHeadings": [
+      "00 · What you need",
+      "01 · Collect references",
+      "02 · Pick the idea and write the script",
+      "03 · Get the ingredients",
+      "04 · Footage",
+      "05 · Voiceover",
+      "06 · The film project",
+      "07 · Build the characters",
+      "08 · Animate the six scenes",
+      "09 · Music and sound",
+      "10 · Render and encode",
+      "11 · Check it",
+      "12 · 4K master",
+      "13 · HyperFrames (optional)"
+    ],
+    "audioParts": 5,
     "cue": {
       "time": 14.5,
       "paused": true
     },
     "errors": []
+  },
+  {
+    "preview": {
+      "deterministic": true,
+      "blur": true
+    }
   }
 ]
