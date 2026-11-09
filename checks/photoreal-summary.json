@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-09",
+  "stillGenerator": "ChatGPT image generation",
+  "stillCount": 2,
+  "veoClips": 0,
+  "motionFallback": "Deterministic Canvas push-in and warm light drift; Gemini JPEG and PNG uploads both failed",
+  "payloads": {
+    "assets\\lantern.mp4": 1876036,
+    "assets\\lantern-4k.mp4": 2848895,
+    "assets\\photoreal\\evening-1600.webp": 107898,
+    "assets\\photoreal\\evening-960.webp": 56200,
+    "assets\\photoreal\\morning-1600.webp": 129738,
+    "assets\\photoreal\\morning-960.webp": 67548,
+    "assets\\photoreal\\poster-1600.webp": 47214
+  },
+  "sceneDeterminism": [
+    {
+      "t": 11,
+      "deterministic": true
+    },
+    {
+      "t": 17,
+      "deterministic": true
+    },
+    {
+      "t": 18.5,
+      "deterministic": true
+    }
+  ],
+  "frames": [
+    {
+      "decodedFrames": 900,
+      "adjacentIdenticalFrames": 0,
+      "blackDetection": "d=0.03, pix_th=0.02",
+      "freezeDetection": "noise=-80dB, duration=0.5s (quiet animated holds)",
+      "events": [],
+      "pass": true
+    },
+    {
+      "decodedFrames": 900,
+      "adjacentIdenticalFrames": 0,
+      "blackDetection": "d=0.03, pix_th=0.02",
+      "freezeDetection": "noise=-80dB, duration=0.5s (quiet animated holds)",
+      "events": [],
+      "pass": true
+    }
+  ],
+  "loudnessLUFS": [
+    "-16.01",
+    "-16.01"
+  ],
+  "liveMediaVerified": true,
+  "liveViewports": [
+    390,
+    1440
+  ],
+  "externalLinkCaveat": "Original guide and design-library links return 200. GitHub repository credit returned 200 before publishing, then 504 on final HTTP and browser-navigation checks; credit preserved unchanged."
+}

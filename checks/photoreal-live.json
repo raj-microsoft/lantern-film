@@ -1,0 +1,80 @@
+{
+  "results": [
+    {
+      "http": 200,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "poster": "https://raj-microsoft.github.io/lantern-film/assets/photoreal/poster-1600.webp",
+      "paused": true,
+      "images": [
+        {
+          "width": 720,
+          "src": "https://raj-microsoft.github.io/lantern-film/assets/photoreal/evening-960.webp",
+          "alt": "AI-generated fictional family reading together at an oak table in a warm Dutch home at dusk"
+        },
+        {
+          "width": 720,
+          "src": "https://raj-microsoft.github.io/lantern-film/assets/photoreal/morning-960.webp",
+          "alt": "AI-generated mother beside a phone while her child packs blank library books into a teal school bag in morning light"
+        }
+      ],
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "http": 200,
+      "width": 390,
+      "scrollWidth": 390,
+      "poster": "https://raj-microsoft.github.io/lantern-film/assets/photoreal/poster-1600.webp",
+      "paused": true,
+      "images": [
+        {
+          "width": 349,
+          "src": "https://raj-microsoft.github.io/lantern-film/assets/photoreal/evening-960.webp",
+          "alt": "AI-generated fictional family reading together at an oak table in a warm Dutch home at dusk"
+        },
+        {
+          "width": 349,
+          "src": "https://raj-microsoft.github.io/lantern-film/assets/photoreal/morning-960.webp",
+          "alt": "AI-generated mother beside a phone while her child packs blank library books into a teal school bag in morning light"
+        }
+      ],
+      "reducedMotion": true,
+      "errors": []
+    }
+  ],
+  "externalLinks": [
+    {
+      "url": "https://achieved-cloak-445.notion.site/Making-the-dots-film-with-Opus-5-5-3f0e13e8b390813f9ac7ce05c2ec7df1",
+      "status": 200
+    },
+    {
+      "url": "https://raj-microsoft.github.io/ai-web-design-library/",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/raj-microsoft/lantern-film",
+      "status": 504
+    }
+  ],
+  "media": [
+    {
+      "name": "assets/lantern.mp4",
+      "status": 200,
+      "bytes": 1876036,
+      "hashMatchesLocal": true
+    },
+    {
+      "name": "assets/lantern-4k.mp4",
+      "status": 200,
+      "bytes": 2848895,
+      "hashMatchesLocal": true
+    },
+    {
+      "name": "assets/photoreal/poster-1600.webp",
+      "status": 200,
+      "bytes": 47214,
+      "hashMatchesLocal": true
+    }
+  ]
+}
