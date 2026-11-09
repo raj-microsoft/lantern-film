@@ -6,7 +6,7 @@ const page=await browser.newPage({viewport:{width:w,height:h},deviceScaleFactor:
 // Verify deterministic seek, and prove that temporal samples change moving geometry.
 const hashes=await page.evaluate(()=>{seek(4.2,4);const a=document.querySelector('canvas').toDataURL();seek(12);seek(4.2,4);const b=document.querySelector('canvas').toDataURL();seek(4.2,1);const c=document.querySelector('canvas').toDataURL();return {deterministic:a===b,motionBlurChangesPixels:a!==c};});
 if(!hashes.deterministic||!hashes.motionBlurChangesPixels)throw Error('Determinism/blur check failed');
-const encoder=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-vcodec','png','-r','30','-i','-','-an','-c:v','libx264','-preset','fast','-crf',four?'22':'20','-pix_fmt','yuv420p',`assets/silent${suffix}.mp4`],{stdio:['pipe','inherit','inherit']});const done=once(encoder,'close');
+const encoder=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-vcodec','png','-r','30','-i','-','-an','-c:v','libx264','-preset','fast','-crf',four?'26':'24','-pix_fmt','yuv420p',`assets/silent${suffix}.mp4`],{stdio:['pipe','inherit','inherit']});const done=once(encoder,'close');
 for(let i=0;i<900;i++){
  const data=await page.evaluate(t=>{seek(t,4);return document.querySelector('canvas').toDataURL('image/png').split(',')[1];},i/30);
  if(!encoder.stdin.write(Buffer.from(data,'base64')))await once(encoder.stdin,'drain');

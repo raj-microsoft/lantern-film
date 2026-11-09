@@ -1,0 +1,14 @@
+[
+  {
+    "t": 11,
+    "deterministic": true
+  },
+  {
+    "t": 17,
+    "deterministic": true
+  },
+  {
+    "t": 18.5,
+    "deterministic": true
+  }
+]

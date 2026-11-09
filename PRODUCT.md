@@ -9,7 +9,7 @@ Visitors watching an original launch-film concept and readers inspecting its pro
 ## Product Purpose
 A 30-second film for fictional Lantern, a small AI that keeps watch over a family's day. This is a concept, not an available product or a claim about actual monitoring.
 ## Capabilities and Constraints
-30 seconds, 900 frames, 30 fps, native 1080p and 4K, approximately -16 LUFS, 120 BPM. Original code-generated characters, locations and music. Four-sample temporal motion blur; captions drawn afterward. Five audio stems with original CC0 cue effects. True-claims list and all 14 original guide headings. Captions replace paid voice generation. No real family data, paid APIs, account creation or copyrighted characters. Publish to the authorized lantern-film repository only.
+30 seconds, 900 frames, 30 fps, native 1080p and 4K, approximately -16 LUFS, 120 BPM. Original code-generated characters, surrounding locations and music; two labeled ChatGPT-generated family plates with deterministic Canvas motion fallback. Four-sample temporal motion blur; captions drawn afterward. Five audio stems with original CC0 cue effects. True-claims list and all 14 original guide headings. Captions replace paid voice generation. No real family data, paid APIs, account creation or copyrighted characters. Publish to the authorized lantern-film repository only.
 ## Brand Commitments
 Calm, warm, no hype. Original synthetic scenes. Guide 06's reference-to-4K pipeline must be documented honestly.
 ## Accessibility & Inclusion

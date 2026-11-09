@@ -5,6 +5,27 @@ const ctx=canvas.getContext('2d',{alpha:false});
 const sample=document.createElement('canvas'), sampleCtx=sample.getContext('2d',{alpha:false});
 const P={ink:'#233b42',paper:'#ecdfc6',teal:'#416b70',gold:'#f3bd61',night:'#20383f',white:'#fff5df'};
 let c=sampleCtx;
+// AI-generated still plates. Deterministic restrained push-in is the documented
+// fallback after Gemini's image uploads failed; no invented Veo footage.
+const plates={};
+const platesReady=Promise.all(['evening','morning'].map(name=>new Promise((resolve,reject)=>{
+ const image=new Image();image.onload=()=>{plates[name]=image;resolve();};image.onerror=reject;
+ image.src=`assets/photoreal/${name}-1600.webp`;
+})));
+function lifeCard(name,x,y,w,h,u,duration){
+ rect(x-12,y-12,w+24,h+24,P.white,24);
+ c.save();c.beginPath();c.roundRect(x,y,w,h,16);c.clip();
+ const image=plates[name],progress=clamp(u/duration),zoom=1+.025*progress;
+ const scale=Math.max(w/image.width,h/image.height)*zoom;
+ const dw=image.width*scale,dh=image.height*scale;
+ c.drawImage(image,x+(w-dw)/2,y+(h-dh)/2,dw,dh);
+ // A barely perceptible warm light drift; all animation derives only from t.
+ c.fillStyle=`rgba(255,215,155,${.012+.009*Math.sin(progress*Math.PI)})`;
+ c.fillRect(x,y,w,h);c.restore();
+ text(x,y-55,name==='evening'?'An evening, together.':'A morning, on your terms.',27);
+ text(x,y+h+29,'AI-generated family · an imagined day',21);
+}
+
 const clamp=x=>Math.max(0,Math.min(1,x));
 const ease=x=>{x=clamp(x);return 1-(1-x)**3;};
 // Critically damped arrivals finish exactly on the next 120 BPM beat.
@@ -46,10 +67,18 @@ function room(t,night=false){
 const scenes=[
  {start:0,end:4,caption:'A little light.',line:'Meet Lantern.',draw(t,u){room(t);rect(500,710,920,40,P.ink,12);line([[590,750],[560,830]],P.ink,18);line([[1330,750],[1360,830]],P.ink,18);lantern(960,550,1.35,t,{hop:8,arrive:.8+.2*spring(u/.5)});text(960,96,'Lantern',43,P.ink,'center');}},
  {start:4,end:9,caption:'For the everyday.',line:'A small AI, imagined for family life.',draw(t,u){room(t);rect(850,658,650,37,P.ink,12);lantern(1340,552,.82,t,{hop:4});const move=200*ease(u/4);person(480+move,590,1.35,t,P.teal,false,true);person(725+move,642,.95,t,'#a87559',true,true);}},
- {start:9,end:14,caption:'The little things, remembered.',line:'Tomorrow: library books.',draw(t,u){room(t);lantern(540,540,1.35,t,{hop:5,lean:-.03});const dy=65*(1-spring(u/.5));rect(825,270+dy,685,420,P.white,24);text(885,325+dy,'Tomorrow, before you go',31);rect(885,410+dy,120,145,P.teal,7);rect(898,410+dy,9,145,'#8eaca4');text(1040,427+dy,'Library books',40);text(1040,491+dy,'Back in the school bag.',28);}},
- {start:14,end:20,caption:'A nudge. Never a decision.',line:'Send a reminder? Only when you say so.',draw(t,u){rect(0,0,1920,1080,'#aec3b8');lantern(490,490,1.5,t,{hop:4,lean:.025});rect(825,245,740,465,P.white,24);text(890,303,'A small thing for tomorrow',30);text(890,376,'Send a reminder?',51);text(890,454,'You choose what happens next.',29);const yes=u>=4;rect(890,545,435,90,yes?P.teal:'#d6dfd0',14);text(1108,566,yes?'Reminder set':'Waiting for your OK',29,yes?P.white:P.ink,'center');
- if(u>=3){const q=ease((u-3)/1),cx=1500-260*q,cy=740-130*q;poly([[cx,cy],[cx+6,30+cy],[cx+15,21+cy],[cx+29,20+cy]],P.ink);}
- if(yes){ellipse(1388,591,28,28,P.gold);line([[1374,591],[1385,602],[1405,579]],P.ink,5);const r=(u-4)*50;if(r<60){c.globalAlpha=1-r/60;ellipse(1240,610,r,r,null,P.teal,3);c.globalAlpha=1;}}}},
+ {start:9,end:14,caption:'The little things, remembered.',line:'Tomorrow: library books.',draw(t,u){room(t);
+ const dy=35*(1-spring(u/.5));lifeCard('evening',150,260+dy,790,444,u,5);
+ lantern(1410,370,.86,t,{hop:5,lean:-.03});rect(1080,535,650,190,P.white,22);
+ rect(1115,577,70,95,P.teal,5);rect(1123,577,6,95,'#8eaca4');
+ text(1220,566,'Tomorrow: library books',31);text(1220,623,'Back in the school bag.',26);}},
+ {start:14,end:20,caption:'A nudge. Never a decision.',line:'Send a reminder? Only when you say so.',draw(t,u){rect(0,0,1920,1080,'#aec3b8');
+ lifeCard('morning',150,260,790,444,u,6);lantern(1410,310,.69,t,{hop:4,lean:.025});
+ rect(1065,435,690,300,P.white,24);text(1110,474,'Send a reminder?',43);
+ text(1110,539,'You choose what happens next.',26);const yes=u>=4;
+ rect(1110,599,470,80,yes?P.teal:'#d6dfd0',14);text(1345,621,yes?'Reminder set':'Waiting for your OK',27,yes?P.white:P.ink,'center');
+ if(u>=3){const q=ease((u-3)/1),cx=1720-260*q,cy=770-130*q;poly([[cx,cy],[cx+6,30+cy],[cx+15,21+cy],[cx+29,20+cy]],P.ink);}
+ if(yes){ellipse(1660,639,27,27,P.gold);line([[1646,639],[1657,650],[1677,627]],P.ink,5);}}},
  {start:20,end:25,caption:'More room for being together.',line:'Less to carry into the evening.',draw(t,u){room(t,true);person(650,510,1.3,t,'#89a79c');person(1250,520,1.2,t,'#b67e60');person(950,600,.85,t,'#d7ad64',true);rect(475,685,970,45,'#b68b65',20);line([[570,730],[555,815]],'#b68b65',20);line([[1350,730],[1365,815]],'#b68b65',20);[720,1180].forEach(x=>ellipse(x,692.5,70,12.5,P.paper));lantern(960,634,.43,t,{hop:3});}},
  {start:25,end:30,caption:'Lantern',line:'A little light for your day.',draw(t,u){rect(0,0,1920,1080,P.night);lantern(960,400,1.22,t,{hop:12,arrive:.9+.1*spring(u/.5)});}}
 ];
@@ -82,4 +111,4 @@ function stop(){playing=false;cancelAnimationFrame(raf);toggle.textContent='Play
 function tick(now){const t=base+(now-start)/1000;if(t>=30){stop();show(29.966667);return;}show(t);raf=requestAnimationFrame(tick);}
 toggle.onclick=()=>{if(playing){stop();return;}base=Number(slider.value);if(base>29.9)base=0;start=performance.now();playing=true;toggle.textContent='Pause preview';raf=requestAnimationFrame(tick);};slider.oninput=()=>{stop();show(Math.round(Number(slider.value)*30)/30);};
 if(new URLSearchParams(location.search).has('render'))document.body.classList.add('render');
-window.filmReady=document.fonts.load('400 66px Figtree').then(()=>{window.configureFilm();show(2);return true;});
+window.filmReady=Promise.all([document.fonts.load('400 66px Figtree'),platesReady]).then(()=>{window.configureFilm();show(2);return true;});
